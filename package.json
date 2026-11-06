@@ -1,0 +1,17 @@
+{
+  "name": "game-pager",
+  "version": "1.0.0",
+  "description": "A self-hosted two-person pager for gaming nights. Runs free on Cloudflare.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "setup": "node scripts/setup.mjs",
+    "setup:local": "node scripts/setup.mjs --local",
+    "dev": "wrangler dev --test-scheduled"
+  },
+  "devDependencies": {
+    "wrangler": "^4.157.0"
+  }
+}

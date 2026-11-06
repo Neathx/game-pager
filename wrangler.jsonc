@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "game-pager",
+  "main": "src/index.js",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": "./public", "binding": "ASSETS" },
+  "durable_objects": {
+    "bindings": [{ "name": "PAGER", "class_name": "PagerStore" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["PagerStore"] }],
+  // Optional PUBG stats check, once a day. Times are in UTC: 15:00 UTC is 10 AM in
+  // New York (winter). Only does anything if you added a PUBG API key.
+  "triggers": { "crons": ["0 15 * * *"] },
+  "vars": {
+    // Your time zone, so "tonight" resets at 5 AM where you live.
+    // Examples: America/New_York, America/Los_Angeles, Europe/London, Australia/Sydney
+    "TIMEZONE": "America/New_York"
+  }
+}
